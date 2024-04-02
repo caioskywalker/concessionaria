@@ -33,45 +33,43 @@ public class CarroTeste {
 	
 	@Test
 	public void criarCarroTest() {
+		Carro carrocriado = criarCarro(129l, 8732l, 8798l);
+		Carro result = carroDao.cadastrarCarro(carrocriado);
+		assertNotNull(result);
+	}
+	
+	public Carro criarCarro(Long codigoCarro, Long codigoMarca, Long CodigoAcessorio) {
+		criarAcessorio(164164l);
+		
 		Carro carro = new Carro();
-		List<Acessorio> acessorioCriado = criarAcessorio(1565l);
-		Marca marca = criarMarca(546l);
-		carro.setAno(2012l);
-		carro.setCodigoCarro(152l);
-		carro.setCor("vermelho");
-		carro.setModelo("Celta");
-		
-		carro.setAcessorios(acessorioCriado);
-		
-		carro.setMarca(marca);
-		Carro carroCriado = carroDao.cadastrarCarro(carro);
-		
-		assertNotNull(carroCriado);
-		
-		
+		carro.setAno(2020l);
+		carro.setCodigoCarro(codigoCarro);
+		carro.setCor("Branco");
+		carro.setMarca(criarMarca(codigoMarca));
+		carro.setModelo("Volvo");
+		carro.adicionarAcessorio(criarAcessorio(CodigoAcessorio));
+		return carro;
 		
 	}
+	
 	
 	public Marca criarMarca(Long codigoMarca) {
-		Marca marca = new Marca();
 		
-		marca.setCodigoMarca(codigoMarca);
-		marca.setNomeDaMarca("Chevrolet");
-		marcaDao.cadastrarMarca(marca);
-		
-		return marca;
+		Marca novaMarca = new Marca();
+		novaMarca.setCodigoMarca(codigoMarca);
+		novaMarca.setNomeDaMarca("Tigo");
+		marcaDao.cadastrarMarca(novaMarca);
+		return novaMarca;
 		
 	}
 	
-	public List<Acessorio> criarAcessorio(Long codigoAcessorio) {
+	public Acessorio criarAcessorio(Long codigoAcessorio) {
 		
 		Acessorio acessorio = new Acessorio();
 		acessorio.setCodigoAcessorio(codigoAcessorio);
-		acessorio.setNomeAcessorio("Capa de volante");
-		List<Acessorio> acessorioList = new ArrayList();
-		acessorioList.add(acessorio);
-		acessorioDao.cadastrarAcessorio(acessorio);
-		return acessorioList;
+		acessorio.setNomeAcessorio("Janela");
+		//return acessorioDao.cadastrarAcessorio(acessorio);
+		return acessorio;
 	}
 	
 	public void criarTeste() {

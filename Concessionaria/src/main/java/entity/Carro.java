@@ -1,5 +1,6 @@
 package entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -34,12 +35,17 @@ public class Carro {
 	@ManyToOne
 	@JoinColumn(name = "id_carro_fk", 
 	foreignKey = @ForeignKey(name = "fk_marca_carro"), 
-	referencedColumnName = "id", nullable = false
+	referencedColumnName = "idMarca", nullable = false
 	)
 	private Marca marca;
 	
 	@Column(name = "Modelo", length = 10, nullable = false)
 	private String modelo;
+	
+	
+	public Carro() {
+		this.acessorios = new ArrayList<Acessorio>();
+	}
 
 	public Long getIdCarro() {
 		return idCarro;
@@ -95,6 +101,10 @@ public class Carro {
 
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
+	}
+	
+	public void adicionarAcessorio(Acessorio acessorio) {
+		this.acessorios.add(acessorio);
 	}
 	
 	

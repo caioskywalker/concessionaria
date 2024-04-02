@@ -9,6 +9,7 @@ import dao.IAcessorioDao;
 import dao.IMarcaDao;
 import dao.MarcaDao;
 import entity.Acessorio;
+import entity.Carro;
 
 public class AcessorioTest {
 	
@@ -25,12 +26,16 @@ public class AcessorioTest {
 		Acessorio acessorio = new Acessorio();
 		acessorio.setCodigoAcessorio(22l);
 		acessorio.setNomeAcessorio("Cinto");
+		acessorio.setCarros(null);
 		Acessorio acessorioCriado = acessorioDao.cadastrarAcessorio(acessorio);
 		assertNotNull(acessorioCriado);
 		
 	}
 	
-	public void criarMarcar() {
+	public void criarCarro() {
+		Carro carro = new Carro();
+		
+		
 		
 	}
 

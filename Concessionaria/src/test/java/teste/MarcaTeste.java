@@ -22,7 +22,8 @@ public class MarcaTeste {
 		marca = new Marca();
 		marca.setCodigoMarca(153l);
 		marca.setNomeDaMarca("Chevrolet");
-		Marca marcaCriada = marcaDao.cadastrarMarca(marca);		
+		Marca marcaCriada = marcaDao.cadastrarMarca(marca);	
+		
 		assertNotNull(marcaCriada);
 	}
 

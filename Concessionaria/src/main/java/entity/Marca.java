@@ -7,6 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "TB_MARCA")
 public class Marca {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="marca_seq")
 	@SequenceGenerator(name="marca_seq", sequenceName="sq_marca", initialValue = 1, allocationSize = 1)
@@ -15,7 +16,7 @@ public class Marca {
 	@Column(name = "Codigo_Marca", length = 10, nullable = false, unique = true)
 	private Long codigoMarca;
 	
-	@Column(name = "Nome_Marca", length = 10, nullable = false)
+	@Column(name = "Nome_Marca", length = 30, nullable = false)
 	private String nomeDaMarca;
 	
 	@OneToMany(mappedBy = "marca")
