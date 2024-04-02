@@ -35,7 +35,7 @@ public class Carro {
 	@JoinColumn(name = "id_carro_fk", 
 	foreignKey = @ForeignKey(name = "fk_marca_carro"), 
 	referencedColumnName = "id", nullable = false
-			)
+	)
 	private Marca marca;
 	
 	@Column(name = "Modelo", length = 10, nullable = false)

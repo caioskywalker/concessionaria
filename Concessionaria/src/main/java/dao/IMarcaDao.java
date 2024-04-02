@@ -5,6 +5,6 @@ import entity.Marca;
 
 public interface IMarcaDao {
 	
-	Marca cadastrarCarro(Marca marca);
+	Marca cadastrarMarca(Marca marca);
 
 }
